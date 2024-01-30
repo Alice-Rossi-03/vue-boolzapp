@@ -8,6 +8,10 @@ body{
     background-color: #329688;
 }
 
+#app{
+    max-height: 100vh;
+}
+
 #app-container{
     width: 75em;
     height: 45em;
@@ -105,7 +109,8 @@ figure img{
 }
 
 .messages-area{
-    height: 37em;
+    max-height: 37em;
+    min-height: 37em;
     background-image: url(../img/mine.jpg);
     background-repeat: repeat;
     padding: 2em;

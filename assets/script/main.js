@@ -4,6 +4,7 @@ const { createApp } = Vue
 createApp({
     data(){ 
         return{
+            currentChat: 0, 
             contacts: [
                 {
                     name: 'Michele',
@@ -165,7 +166,8 @@ createApp({
                             status: 'received'
                         }
                     ],
-                }
+                },
+                
                 ]
         }
     },
@@ -173,6 +175,8 @@ createApp({
 
     },
     methods:{
-        
+        setChat(index){ // per cambiare la current chat click 
+            this.currentChat = index
+        } 
     }, 
 }).mount("#app") 
