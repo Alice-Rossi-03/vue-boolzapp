@@ -36,18 +36,61 @@ body{
     align-items: center;
 }
 
-.fig-1{
+figure{
     width: 2.2em;
     aspect-ratio: 1;
 }
 
-.fig-1 img{
+figure img{
     object-fit: contain;
     width: 100%;
     border-radius: 50%;
 }
 
-.text-gray{
-    color: gray;
+.text-smaller{
     font-size: 0.7em;
+}
+
+.notifications{
+    background-color: #8EDAFC;
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.white-circle{
+    background-color: white;
+    border-radius: 50%;
+}
+
+.gray{
+    color: #B1B1B1;
+}
+
+.contacts{
+    max-height: 100%;
+}
+
+.contact{
+    height: 4em;
+    border-bottom: 0.5px solid lightgray;
+    padding: 0.5em;
+}
+
+.contact:hover{
+    background-color: rgba(211, 211, 211, 0.509);
+}
+
+.my-col-2{
+    width: 15%;
+}
+
+.my-col-6{
+    width: 70%;
+}
+
+.bigger-figure{
+    width: 2.6em;
+    vertical-align: middle;
 }
