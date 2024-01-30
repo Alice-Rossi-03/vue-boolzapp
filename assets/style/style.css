@@ -22,17 +22,15 @@ body{
     border-right: 0.5px solid lightgray;
 }
 
-.top-left-container{
+.my-top{
     height: 4em;
-    padding: 0.7em;
-    display: flex;
-    justify-content: space-between;
+    padding: 1em;
 }
 
 .top-left,
 .top-right{
     display: flex;
-    gap: 0.5em;
+    gap: 0.8em;
     align-items: center;
 }
 
@@ -69,7 +67,8 @@ figure img{
 }
 
 .contacts{
-    max-height: 100%;
+    max-height: 20em;
+    overflow-y: auto; 
 }
 
 .contact{
@@ -93,4 +92,47 @@ figure img{
 .bigger-figure{
     width: 2.6em;
     vertical-align: middle;
+}
+
+.writing-area{
+    height: 4em;
+    padding: 0.7em;
+    background-color: #F3EEEA;
+    display: flex;
+    gap: 1em;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.messages-area{
+    height: 37em;
+    background-image: url(../img/mine.jpg);
+    background-repeat: repeat;
+    padding: 2em;
+}
+
+.message-recieved{
+    padding: 1em;
+    background-color: #FFFFFF;
+    margin-bottom: 0.5em;
+    border-radius: 1em;
+    width: 40%;
+    position: relative;
+    margin-right: 5em;
+}
+
+.message-send{
+    padding: 1em;
+    background-color: #D5F9BA;
+    margin-bottom: 0.5em;
+    border-radius: 1em;
+    position: relative;
+    width: 40%;
+    margin-left: 20em;
+}
+
+.time{
+    position: absolute;
+    bottom: 0.3em;
+    right: 0.5em;
 }
