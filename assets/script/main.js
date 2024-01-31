@@ -5,6 +5,7 @@ createApp({
     data(){ 
         return{
             currentChat: 0, 
+            searchNames: '',
             contacts: [  // Object array 
                 {
                     name: 'Michele',
@@ -213,4 +214,11 @@ createApp({
             }
         },
     }, 
+    computed: {
+        filterNames(){ // Function to filter names 
+            return this.contacts.filter(element => {
+                return element.name.toLowerCase().includes(this.searchNames.toLowerCase())
+            })
+        }
+    }
 }).mount("#app") 
