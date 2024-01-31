@@ -180,9 +180,25 @@ createApp({
             console.log("clicked")
         },
         addMessage(){   
+
+            let date = new Date() 
+
+            let day = date.getDate()
+            let month = date.getMonth() + 1
+            let year = date.getFullYear()
+
+            let minutes = date.getMinutes()
+            let hours = date.getHours()
+            let seconds = date.getSeconds()
+
+            let dateValue = day.toString().padStart(2, '0') + '/' + month.toString().padStart(2, '0') + '/' + year
+
+            let timeValue = hours.toString().padStart(2, '0') + ':' + minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0')
+
+
             if(this.newMessage.length !== 0){
                 this.contacts[this.currentChat].messages.push({
-                    date: '12:00',
+                    date: `${dateValue} ${timeValue}`,
                     message: this.newMessage, 
                     status: 'sent' 
                 })
@@ -190,11 +206,11 @@ createApp({
 
                 setTimeout(() => {
                     this.contacts[this.currentChat].messages.push({
-                        date: '12:05',
+                        date: `${dateValue} ${timeValue}` ,
                         message: 'Ok', 
                         status: 'recieved' 
                     })
-                })
+                }, 1000)
 
             }
         },
