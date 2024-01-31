@@ -1,11 +1,11 @@
 
 const { createApp } = Vue  
 
-createApp({
+createApp({ 
     data(){ 
         return{
             currentChat: 0, 
-            contacts: [
+            contacts: [  // Object array 
                 {
                     name: 'Michele',
                     avatar: './assets/img/avatar_1.jpg',
@@ -175,53 +175,42 @@ createApp({
 
     },
     methods:{
-        setChat(index){ 
-            this.currentChat = index
+        setChat(index){ // Setting currentChat as the Display 
+            this.currentChat = index 
             console.log("clicked")
         },
-        addMessage(){   
+        addMessage(){  // Writing a new message 
 
-            let date = new Date() 
+            let date = new Date() // Taking the date of the new message 
 
-            let day = date.getDate()
-            let month = date.getMonth() + 1
-            let year = date.getFullYear()
+            let day = date.getDate() // Get date
+            let month = date.getMonth() + 1 // Get month
+            let year = date.getFullYear() // Get year
 
-            let minutes = date.getMinutes()
-            let hours = date.getHours()
-            let seconds = date.getSeconds()
+            let minutes = date.getMinutes() // Get minutes
+            let hours = date.getHours() // Get hours
+            let seconds = date.getSeconds() // Get seconds 
 
-            let dateValue = day.toString().padStart(2, '0') + '/' + month.toString().padStart(2, '0') + '/' + year
+            let dateValue = day.toString().padStart(2, '0') + '/' + month.toString().padStart(2, '0') + '/' + year  // Date dd/mm/yyyy
 
-            let timeValue = hours.toString().padStart(2, '0') + ':' + minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0')
+            let timeValue = hours.toString().padStart(2, '0') + ':' + minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0') // Time hh:mm:ss
 
-
-            if(this.newMessage.length !== 0){
+            if(this.newMessage.length !== 0){  // Push of the new message  
                 this.contacts[this.currentChat].messages.push({
                     date: `${dateValue} ${timeValue}`,
                     message: this.newMessage, 
                     status: 'sent' 
                 })
-                this.newMessage = ''  
+                this.newMessage = ''  // Resetting the input text 
 
-                setTimeout(() => {
+                setTimeout(() => {  // Simulate receiving a new message every second
                     this.contacts[this.currentChat].messages.push({
                         date: `${dateValue} ${timeValue}` ,
                         message: 'Ok', 
                         status: 'recieved' 
                     })
                 }, 1000)
-
             }
         },
-        
-            // Simulate receiving a new message every second
-            
-
-        
-        
-        
-    
-
     }, 
 }).mount("#app") 
