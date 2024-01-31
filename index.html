@@ -72,7 +72,7 @@
                 <div class="bottom-left-container">
                     
                     <div class="contacts overflow-y-scroll">
-                        <div class="contact d-flex" v-for="(element, index) in contacts" :key="index" @click="setChat(index)">
+                        <div class="contact d-flex" v-for="(element, index) in contacts" :key="index" @click="setChat(index)" v-bind:class="(currentChat === index) ? 'active' : '' ">
                             <div class="my-col-2">
                                 <figure class="bigger-figure mb-0">
                                     <img v-bind:src="element.avatar" alt="">
@@ -80,10 +80,10 @@
                             </div>
                             <div class="my-col-6">
                                 <div>{{element.name}}</div>
-                                <div class="gray text-smaller">Ultimo Messaggio Inviato</div>
+                                <div class="gray text-smaller">{{element.messages[element.messages.length - 1].message}}</div>
                             </div>
                             <div class="gray my-col-2 text-smaller text-end">
-                                12:00
+                                {{element.messages[element.messages.length - 1].date}}
                             </div>
                         </div>
                     </div>
@@ -103,7 +103,7 @@
                             </figure>
                             <div>
                                 <div class="fw-bold">{{contacts[currentChat].name}}</div>
-                                <div class="gray text-smaller">Ultimo Accesso Oggi Alle 12:00</div>
+                                <div class="gray text-smaller">Ultimo Accesso il {{contacts[currentChat].messages[contacts[currentChat].messages.length - 1].date}}</div>
                             </div>
                         </div>
                         <div class="top-right">
@@ -122,11 +122,11 @@
                     </div>
 
                     <div class="messages-area overflow-y-scroll">
-                        <div class="w-75 mx-auto" v-for="(element, index) in contacts.messages">
+                        <div class="w-75 mx-auto" v-for="element in contacts[currentChat].messages">
 
-                            <div v-bind:class="([currentChat].status = 'sent') ? 'message-send' : 'message-recieved' ">
-                                <div>{{[currentChat].message}}</div>
-                                <div class="time gray text-smaller">{{[currentChat].date}}</div>
+                            <div v-bind:class="(element.status === 'sent') ? 'message-send' : 'message-recieved' ">
+                                <div>{{element.message}}</div>
+                                <div class="time gray text-smaller">{{element.date}}</div>
                             </div>
 
                         </div>

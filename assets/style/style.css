@@ -71,7 +71,7 @@ figure img{
 }
 
 .contacts{
-    max-height: 20em;
+    max-height: 28em;
     overflow-y: auto; 
 }
 
@@ -82,6 +82,10 @@ figure img{
 }
 
 .contact:hover{
+    background-color: rgba(211, 211, 211, 0.509);
+}
+
+.active{
     background-color: rgba(211, 211, 211, 0.509);
 }
 
@@ -106,6 +110,7 @@ figure img{
     gap: 1em;
     justify-content: space-evenly;
     align-items: center;
+    border-bottom-right-radius: 1em;
 }
 
 .messages-area{
@@ -121,9 +126,9 @@ figure img{
     background-color: #FFFFFF;
     margin-bottom: 0.5em;
     border-radius: 1em;
-    width: 40%;
+    width: 45%;
     position: relative;
-    margin-right: 5em;
+    margin-right: auto;
 }
 
 .message-send{
@@ -132,8 +137,8 @@ figure img{
     margin-bottom: 0.5em;
     border-radius: 1em;
     position: relative;
-    width: 40%;
-    margin-left: 20em;
+    width: 45%;
+    margin-left: auto;
 }
 
 .time{

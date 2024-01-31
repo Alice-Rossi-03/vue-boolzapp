@@ -177,6 +177,8 @@ createApp({
     methods:{
         setChat(index){ // per cambiare la current chat click 
             this.currentChat = index
-        } 
+            console.log("clicked")
+        },
+        
     }, 
 }).mount("#app") 
