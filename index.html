@@ -15,9 +15,9 @@
 <body>
     
     <div id="app">
-        <div id="app-container">
+        <div id="app-container" class="row">
 
-            <div id="left-container" class="col-4">
+            <div id="left-container" class="col-4 px-0">
 
                 <div class="top-left-container">
                     <div class="my-top d-flex justify-content-between">
@@ -90,7 +90,7 @@
                 </div>
             </div>
 
-            <div id="right-container" class="col-8">
+            <div id="right-container" class="col-8 px-0">
                 <div class="top-right-container">
 
                 </div>
@@ -122,7 +122,7 @@
                     </div>
 
                     <div class="messages-area overflow-y-scroll">
-                        <div class="w-75 mx-auto" v-for="element in contacts[currentChat].messages">
+                        <div class="p-1 mx-auto" v-for="element in contacts[currentChat].messages">
 
                             <div v-bind:class="(element.status === 'sent') ? 'message-send' : 'message-recieved' ">
                                 <div>{{element.message}}</div>
@@ -139,7 +139,7 @@
                             </svg>
                         </div>
                         <div class="w-75">
-                            <input type="text" class="form-control" placeholder="Write a new message">
+                            <input type="text" class="form-control" placeholder="Write a new message" v-model="newMessage" @keyup.enter="addMessage">
                         </div>
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" style="fill:#B1B1B1; width:1.5em; height:1.5em; ">

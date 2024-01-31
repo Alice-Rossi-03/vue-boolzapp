@@ -4,8 +4,12 @@
     box-sizing: border-box;
 }
 
-body{
-    background-color: #329688;
+body {
+    background: linear-gradient(
+      to bottom,
+      #329688 0% 20%,
+      #DBDBD3 20% 100%
+    );
 }
 
 #app{
@@ -124,7 +128,7 @@ figure img{
 .message-recieved{
     padding: 1em;
     background-color: #FFFFFF;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.3em;
     border-radius: 1em;
     width: 45%;
     position: relative;
@@ -134,7 +138,7 @@ figure img{
 .message-send{
     padding: 1em;
     background-color: #D5F9BA;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.3em;
     border-radius: 1em;
     position: relative;
     width: 45%;

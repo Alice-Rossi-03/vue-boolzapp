@@ -175,10 +175,37 @@ createApp({
 
     },
     methods:{
-        setChat(index){ // per cambiare la current chat click 
+        setChat(index){ 
             this.currentChat = index
             console.log("clicked")
         },
+        addMessage(){   
+            if(this.newMessage.length !== 0){
+                this.contacts[this.currentChat].messages.push({
+                    date: '12:00',
+                    message: this.newMessage, 
+                    status: 'sent' 
+                })
+                this.newMessage = ''  
+
+                setTimeout(() => {
+                    this.contacts[this.currentChat].messages.push({
+                        date: '12:05',
+                        message: 'Ok', 
+                        status: 'recieved' 
+                    })
+                })
+
+            }
+        },
         
+            // Simulate receiving a new message every second
+            
+
+        
+        
+        
+    
+
     }, 
 }).mount("#app") 
