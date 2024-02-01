@@ -208,7 +208,7 @@ createApp({
                     this.contacts[this.currentChat].messages.push({
                         date: `${dateValue} ${timeValue}` ,
                         message: 'Ok', 
-                        status: 'recieved' 
+                        status: 'received' 
                     })
                 }, 1000)
             }
@@ -217,7 +217,11 @@ createApp({
     computed: {
         filterNames(){ // Function to filter names 
             return this.contacts.filter(element => {
-                return element.name.toLowerCase().includes(this.searchNames.toLowerCase())
+                if (element.name.toLowerCase().includes(this.searchNames.toLowerCase())) {
+                    element.visible = true 
+                } else {
+                    element.visible = false 
+                }
             })
         }
     }

@@ -14,12 +14,19 @@
 </head>
 <body>
     
+    <!-- app -->
     <div id="app">
+
+        <!-- app-container -->
         <div id="app-container" class="row">
 
+            <!-- left-container -->
             <div id="left-container" class="col-4 px-0">
 
+                <!-- top-left-container -->
                 <div class="top-left-container">
+
+                    <!-- my-account -->
                     <div class="my-top d-flex justify-content-between">
                         <div class="top-left">
                             <figure class="mb-0">
@@ -30,6 +37,8 @@
                             </span>
                         </div>
                         <div class="top-right">
+
+                            <!-- icons -->
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="fill:#B1B1B1; width:1em; height:1em; " >
                                 <path d="M222.7 32.1c5 16.9-4.6 34.8-21.5 39.8C121.8 95.6 64 169.1 64 256c0 106 86 192 192 192s192-86 192-192c0-86.9-57.8-160.4-137.1-184.1c-16.9-5-26.6-22.9-21.5-39.8s22.9-26.6 39.8-21.5C434.9 42.1 512 140 512 256c0 141.4-114.6 256-256 256S0 397.4 0 256C0 140 77.1 42.1 182.9 10.6c16.9-5 34.8 4.6 39.8 21.5z"/>
                             </svg>
@@ -45,6 +54,7 @@
                         </div>
                     </div>
                     
+                    <!-- notifications -->
                     <div class="notifications">
                         <div class="white-circle">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" style="fill:#8EDAFC; width:2em; height:2em;">
@@ -57,6 +67,7 @@
                         </div>
                     </div>
 
+                    <!-- search-bar -->
                     <div class="search-bar p-2">
                         <div class="input-group flex-nowrap"> 
                             <span class="input-group-text" id="addon-wrapping">
@@ -64,15 +75,20 @@
                                     <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
                                 </svg>
                             </span>
-                            <input id="navBar" type="search" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="addon-wrapping" v-model="searchNames">
+                            <input id="navBar" type="search" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="addon-wrapping" v-model="searchNames" @keyup="filterNames">
                           </div>
                     </div>
                 </div>
 
+                <!-- bottom-left-container -->
                 <div class="bottom-left-container">
                     
+                    <!-- contacts-list -->
                     <div class="contacts overflow-y-scroll">
-                        <div class="contact d-flex" v-for="(element, index) in contacts" v-for="(element, index) in filterNames()"  :key="index" @click="setChat(index)" v-bind:class="(currentChat === index) ? 'active' : '' ">
+
+                        <!-- contact container -->
+                        <div class="contact d-flex" v-for="(element, index) in contacts" :key="index" @click="setChat(index)" v-bind:class="(element.visible) ? '' : 'd-none' " s-show="element.visible" :class="(currentChat === index) ? 'active' : '' ">
+                            
                             <div class="my-col-2">
                                 <figure class="bigger-figure mb-0">
                                     <img v-bind:src="element.avatar" alt="">
@@ -85,18 +101,18 @@
                             <div class="gray my-col-2 text-smaller text-end">
                                 {{element.messages[element.messages.length - 1].date}}
                             </div>
+                            
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- right-container -->
             <div id="right-container" class="col-8 px-0">
                 <div class="top-right-container">
-
-                </div>
-                <div class="bottom-right-container position-relative">
-
                     <div class="my-top d-flex justify-content-between">
+
+                        <!-- top-left-container -->
                         <div class="top-left">
                             <figure class="mb-0">
                                 <img v-bind:src="contacts[currentChat].avatar" alt="">
@@ -106,6 +122,8 @@
                                 <div class="gray text-smaller">Ultimo Accesso il {{contacts[currentChat].messages[contacts[currentChat].messages.length - 1].date}}</div>
                             </div>
                         </div>
+
+                        <!-- top-right-container -->
                         <div class="top-right">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="fill:#B1B1B1; width:1em; height:1em; ">
                                 <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
@@ -120,10 +138,16 @@
                             
                         </div>
                     </div>
+                </div>
 
+                <!-- bottom-right-container -->
+                <div class="bottom-right-container position-relative">
                     <div class="messages-area overflow-y-scroll">
+
+                        <!-- messages container -->
                         <div class="p-1 mx-auto" v-for="element in contacts[currentChat].messages">
 
+                            <!-- message -->
                             <div v-bind:class="(element.status === 'sent') ? 'message-send' : 'message-recieved' ">
                                 <div>{{element.message}}</div>
                                 <div class="time gray text-smaller">{{element.date}}</div>
@@ -131,7 +155,8 @@
 
                         </div>
                     </div>
-
+                    
+                    <!-- writing area -->
                     <div class="writing-area">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="fill:#B1B1B1; width:1.5em; height:1.5em; ">
