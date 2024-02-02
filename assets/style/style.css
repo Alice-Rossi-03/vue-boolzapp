@@ -65,6 +65,11 @@ figure img{
     gap: 1em;
 }
 
+.search-bar{
+    padding-inline: 1em;
+    padding-block: 0.4em;
+}
+
 .white-circle{
     background-color: white;
     border-radius: 50%;
@@ -81,8 +86,9 @@ figure img{
 
 .contact{
     height: 4em;
-    border-bottom: 0.5px solid lightgray;
-    padding: 0.5em;
+    border-bottom: 0.5px solid rgb(243, 243, 243);
+    padding-inline: 1em;
+    padding-block: 0em;
 }
 
 .contact:hover{
@@ -133,6 +139,7 @@ figure img{
     width: 45%;
     position: relative;
     margin-right: auto;
+    font-size: 0.9em;
 }
 
 .message-send{
@@ -142,11 +149,16 @@ figure img{
     border-radius: 1em;
     position: relative;
     width: 45%;
+    font-size: 0.9em;
     margin-left: auto;
 }
 
 .time{
     position: absolute;
     bottom: 0.3em;
-    right: 0.5em;
+    right: 0.7em;
+}
+
+.text-smallest{
+    font-size: 0.6em;
 }

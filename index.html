@@ -68,7 +68,7 @@
                     </div>
 
                     <!-- search-bar -->
-                    <div class="search-bar p-2">
+                    <div class="search-bar">
                         <div class="input-group flex-nowrap"> 
                             <span class="input-group-text" id="addon-wrapping">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="fill:#B1B1B1; width:1em; height:1em; ">
@@ -87,7 +87,7 @@
                     <div class="contacts overflow-y-scroll">
 
                         <!-- contact container -->
-                        <div class="contact d-flex" v-for="(element, index) in contacts" :key="index" @click="setChat(index)" v-bind:class="(element.visible) ? '' : 'd-none' " s-show="element.visible" :class="(currentChat === index) ? 'active' : '' ">
+                        <div class="contact d-flex align-items-center" v-for="(element, index) in contacts" :key="index" @click="setChat(index)" v-bind:class="(element.visible) ? '' : 'd-none' " s-show="element.visible" :class="(currentChat === index) ? 'active' : '' ">
                             
                             <div class="my-col-2">
                                 <figure class="bigger-figure mb-0">
@@ -98,7 +98,7 @@
                                 <div>{{element.name}}</div>
                                 <div class="gray text-smaller">{{element.messages[element.messages.length - 1].message}}</div>
                             </div>
-                            <div class="gray my-col-2 text-smaller text-end">
+                            <div class="gray my-col-2 text-smallest text-end align-self-start mt-2">
                                 {{element.messages[element.messages.length - 1].date}}
                             </div>
                             
@@ -149,8 +149,8 @@
 
                             <!-- message -->
                             <div v-bind:class="(element.status === 'sent') ? 'message-send' : 'message-recieved' ">
-                                <div>{{element.message}}</div>
-                                <div class="time gray text-smaller">{{element.date}}</div>
+                                <div class="mb-2">{{element.message}}</div>
+                                <div class="time gray text-smallest">{{element.date}}</div>
                             </div>
 
                         </div>
